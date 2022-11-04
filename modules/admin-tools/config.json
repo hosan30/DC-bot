@@ -1,0 +1,12 @@
+{
+  "filename": "config.json",
+  "humanname-de": "Konfiguration",
+  "humanname-en": "Configuration",
+  "commandsWarnings": {
+    "normal": [
+      "/admin",
+      "/stealemote"
+    ]
+  },
+  "content": []
+}

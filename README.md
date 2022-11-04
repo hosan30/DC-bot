@@ -1,10 +1,10 @@
-# Focus
+# Focuss
 *Revamp your Discord server. Moderation, role management, logging and more, all in an easy to use, feature rich and bug free Discord bot!*
 > It's a really useful and good bot. Easy to manage. I would recommend everyone to add this to their respective servers.
 
 > A really useful and easy to use bot.
 ## Installation Guide
-This guide will cover all the steps needed to get a bot up and running from absolute scratch using my source code. If you stumble across any issues with setting it up, my [Discord server](https://discord.gg/r4bsXez) is the right place to seek help.
+This guide will cover all the steps needed to get a bot up and running from absolute scratch using my source code. If you stumble across any issues with stting it up, my [Discord server](https://discord.gg/r4bsXez) is the right place to seek help.
 Please note though, I strongly advice that you have a decent understanding of JavaScript, Node.js and discord.js before diving into this.
 ### 1. Creating a Bot Account
 *  Open your browser, go to Discord's [Developer Portal](https://discord.com/developers/applications), click on `New Application` and give your application a name.

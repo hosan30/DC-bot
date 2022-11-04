@@ -1,65 +1,145 @@
-# Focuss
-*Revamp your Discord server. Moderation, role management, logging and more, all in an easy to use, feature rich and bug free Discord bot!*
-> It's a really useful and good bot. Easy to manage. I would recommend everyone to add this to their respective servers.
+<h1 align="center">
+  <br>
+  <a href="https://github.com/sabattle/CalypsoBot"><img src="./data/images/Calypso_Title.png"></a>
+  <br>
+  Calypso Discord Bot
+  <br>
+</h1>
 
-> A really useful and easy to use bot.
-## Installation Guide
-This guide will cover all the steps needed to get a bot up and running from absolute scratch using my source code. If you stumble across any issues with stting it up, my [Discord server](https://discord.gg/r4bsXez) is the right place to seek help.
-Please note though, I strongly advice that you have a decent understanding of JavaScript, Node.js and discord.js before diving into this.
-### 1. Creating a Bot Account
-*  Open your browser, go to Discord's [Developer Portal](https://discord.com/developers/applications), click on `New Application` and give your application a name.
+<h3 align=center>A fully customizable bot built with <a href=https://github.com/discordjs/discord.js>discord.js</a></h3>
 
-* Click on the application you've just created and navigate into `Bot`. Here you can give your bot a username, description (that will show up in the About Me section) and an avatar. You want to make sure that the `Server Members Intent` stays enabled.
 
-* In order to have your bot join any servers, you have to create an invite link. The invite url will contain your bot's user ID (which you can copy from the `Application` menu). Simply replace `[your_bot_id]` with your bot client ID you just copied in the template below, then use it to invite the bot.
-  ```
-  https://discord.com/oauth2/authorize?client_id=[your_bot_id]&permissions=268561494&scope=bot%20applications.commands
-  ```
-### 2. Connecting The Code To The Bot
-* Before downloading the bot's source code, you must download and install [Node.js](https://nodejs.org/en/) on your computer.
+<div align=center>
 
-* You can now proceed to download [the latest code](https://github.com/Focus04/focus/releases). Scroll to the latest release and download the corresponding zip file, then extract it somewhere on your computer.
+  <a href="https://discord.gg/pnYVdut">
+    <img src="https://discordapp.com/api/guilds/709992782252474429/widget.png?style=shield" alt="shield.png">
+  </a>
 
-* Navigate into the folder you've just extracted (which should contain all the code), right click and open a new terminal in the folder (my recommendation would be [PowerShell 7](https://github.com/PowerShell/powershell/releases) if you're a Windows user). Use the following command to install all the dependencies:
-  ```
-  npm i
-  ```
+  <a href="https://github.com/discordjs">
+    <img src="https://img.shields.io/badge/discord.js-v12.3.1-blue.svg?logo=npm" alt="shield.png">
+  </a>
 
-* Go back to the `Developer Portal` into your browser and navigate into `Bot`. Here you want to click on `Copy` to copy your bot's token. This token is the password for your bot account, so you want to keep that as secure as possible in an environment variable.
+  <a href="https://github.com/sabattle/CalypsoBot/blob/develop/LICENSE">
+    <img src="https://img.shields.io/badge/license-GNU%20GPL%20v3-green" alt="shield.png">
+  </a>
 
-* Open the code using your preferred text editor (I recommend sticking to [Visual Studio Code](https://code.visualstudio.com/)). To speed this up, you can type `code.` in the terminal.
+</div>
 
-* With your text editor, navigate into the `.env` file and replace `your_bot_token` with the token you just copied, then hit save. 
-### 3. Configuring the bot
-  * The bot offers suggestions and bug reporting features. For those to work, you have to create 2 channels for suggestions and bug reports respectively.
+<p align="center">
+  <a href="#about">About</a>
+  •
+  <a href="#features">Features</a>
+  •
+  <a href="#installation">Installation</a>
+  •
+  <a href="#setting-up">Setting Up</a>
+  •
+  <a href="#license">License</a>
+  •
+  <a href="#credits">Credits</a>
+</p>
 
-  * Right click on the suggestions channel, then hit `Copy ID`. Replace the `changeme` in the `suggestionChId` field with the ID you copied.
+## About
 
-  * Repeat for the bug reports channel by editing the `bugChId` field.
+Calypso is an open source, fully customizable Discord bot that is constantly growing. She comes packaged with a variety of commands and a multitude of settings that can be tailored to your server's specific needs. Her codebase also serves as a base framework to easily create Discord bots of all kinds. You can invite her to your Discord server using [this](https://discordapp.com/oauth2/authorize?client_id=416451977380364288&scope=bot&permissions=403008599) link! Also, you can join the official [Calypso Support Server](https://discord.gg/pnYVdut) for all questions, suggestions, and assistance!
 
-  * You can finally edit your `botInviteLink`, `discordInviteLink`, `topgg`, `website` and `github` fields with your own urls (or leave them empty).
+If you liked this repository, feel free to leave a star ⭐ to help promote Calypso!
 
-  * You can also edit the `package.json` file.
-### 4. Setting up the database
-  * Here comes the trickier part, setting up a MongoDB database for the bot to store its data in. Start by registering an account at [MongoDB](https://www.mongodb.com/).
+## Features
 
-  * Navigate to `Databases`, then hit `Create`. Select your prefered options (there are options for free tier clusters too). When you're done, click `Create Cluster`. The creation process can take several minutes, so be patient.
+**110+** commands and counting across **8** different categories!
 
-  * Once the cluster goes live, click on `Browse Collections` and hit `Create Database`. Here you have to create a database for each field in the `.env` file (25 in total). You can start with `bannedUsers`. The name of the database is up to you but make sure it's something suggestive as you'll need it later. You can now click `Create`.
+  * **Administration:** A huge amount of settings to customize with commands like `setprefix`, `setwelcomemessage`, and `setverificationrole`
+  * **Moderation:** Commands such as `kick`, `ban`, and `mute` to assist your moderator staff
+  * **Fun & Games:** Tons of fun commands like `trivia`, `meme`, `emojify`, and a variety of animal pic commands like `cat`, `dog`, and `fox`
+  * **Information:** Commands like `userinfo` and `serverinfo` for general utility
+  * **Points:** A unique points system with a rotating winner that has commands like `leaderboard`, `givepoints`, and `crown`
+  * **Color:** Change your Discord color with commands like `color`, `createcolor` and `randomcolor`
+  * **Owner:** Owner specific commands like `eval` and `servers`
+  * **Miscellaneous:** All other commands like `feedback` and `bugreport`
 
-  * Repeat for the remaining fields (`disabledCmds`, `kks`, `leaveMessages`, `leaveChannels`, `logChannels`, `msgLogs`, `mts`, `mutedMembers`, `names`, `notes`, `prefixes`, `punishments`, `reminders`, `rolePickers`, `suggestionChannels`, `toggleLeaveMsg`, `toggleWelcomeDm`, `toggleWelcomeMsg`, `welcomeChannels`, `welcomeDms`, `welcomeMessages`, `welcomeRoles` & `wrns`).
+Calypso also comes packed with a variety of features, such as:
 
-  * Go back to your cluster overview, click `Connect` and choose the second option. Here you have to choose `Node.js` and the `2.2.12 or later` version. Copy the connection string. Replace `database_url` with the url you copied in all fields of the `.env`. Replace `<password>` with the password you set on your cluster. Replace `myFirstDatabase` with the name of the database that you created for the corresponding field. There should be 25 databases in total, which equates to 25 connection strings.
-### 5. Generating API Keys
-  * In order for the weather command to work, you'll need to generate a key for the [OpenWeatherMap API](https://openweathermap.org/api). Register an account there.
-  
-  * On the homepage, click on your username and go to `My API keys`.
+  * **Auto role** assignment
+  * Server **verification** via reactions
+  * **Welcome messages** and **farewell messages**
+  * **Logging** for mod commands and various events
+  * **Moderator only** channels
+  * A **starboard**
+  * **Auto kicking** when a warn limit is reached
+  * Auto **random colors** when members join
+  * Per **command disabling**
+  * And much more! There are over **30+** settings to tweak!
 
-  * Input a name for your key and hit `Generate`.
 
-  * Copy the newly generated key, go to the `.env` file and replace `your_open_weather_map_api_key` with it.
-### 6. Starting up the bot
-  * At this point you're pretty much done. You can now run the following command in your terminal to start the bot. Remember to use it everytime you update the source code:
-  ```
-  node .
-  ```
+## Installation
+
+You can add Calypso to your server with [this](https://discordapp.com/oauth2/authorize?client_id=416451977380364288&scope=bot&permissions=403008599) link! Alternatively, you can clone this repo and host the bot yourself.
+```
+git clone https://github.com/sabattle/CalypsoBot.git
+```
+After cloning, run an
+```
+npm install
+```
+to snag all of the dependencies. Of course, you need [node](https://nodejs.org/en/) installed. I also strongly recommend [nodemon](https://www.npmjs.com/package/nodemon) as it makes testing *much* easier.
+
+## Setting Up
+
+You have to create a `config.json` file in order to run the bot (you can use the example file provided as a base). Your file should look something like this:
+```
+{
+  "token": "your_token_here",
+  "ownerId": "your_ID_here",
+  "bugReportChannelId": "bug_report_channel_ID_here",
+  "feedbackChannelId": "feedback_channel_ID_here",
+  "serverLogId": "server_log_ID_here",
+  "apiKeys": {
+    "catApi": "your_API_key_here",
+    "googleApi": "your_API_key_here"
+  }
+}
+```
+Visit the Discord [developer portal](https://discordapp.com/developers/applications/) to create an app and use the client token you are given for the `token` option. `ownerId` is your own Discord snowflake. `bugReportChannelId`, `feedbackChannelId`, and `serverLogId` should be set to respective text channels on your own server. To get keys for supported APIs, vist:
+
+  * [TheCatAPI](https://thecatapi.com/)
+  * [Google APIs](https://console.developers.google.com/apis/)
+
+After your `config.json` file is built, you have enable `Privileged Intents` on your Discord [developer portal](https://discordapp.com/developers/applications/). You can find these intents under the "Bot" section, and there are two ticks you have to switch on. For more information on Gateway Intents, check out [this](https://discordjs.guide/popular-topics/intents.html#the-intents-bit-field-wrapper) link.
+
+Once done, feel free to launch Calypso using the command `node app.js` or `nodemon app.js`. If on Linux, you can also kick off using the `start.sh` script. If you need additional help setting up, join the [Calypso Support Server](https://discord.gg/pnYVdut)!
+
+**Important Note:** Do not use Heroku to host Calypso! Calypso uses SQLite as its database which backs up its data store on disk. Heroku clears its contents often, so your database will be wiped. Read more [here](https://devcenter.heroku.com/articles/sqlite3).
+
+### Emojis
+
+If you are **self-hosting** Calypso, you may notice that the emojis for certain commands are not displaying. This is because Calypso uses **custom emojis** for a variety of her commands. These emojis will have to be added to your own server, and you will have to change the corresponding IDs in the `emojis.json` util if you would like to use them. Or, you can replace the emojis in `emojis.json` with ones you already have access to. If you would like to use Calypso's original custom emojis, hop into the [Calypso Support Server](https://discord.gg/pnYVdut) where you can snag them all.
+
+### Colors
+
+Upon being invited to a server, Calypso will automatically create **6** predefined colors for your server to enjoy. To add more, use the provided `createcolor` command to quickly and easily create new colors.
+
+To add colors manually, first create a few empty roles at the bottom of your server's role hierarchy. The names of these roles must begin with the character `#`, for example, `#Red` or `#Blue`. Then change the color of that role to your desired hex, and that's it! After they are set up, the members of your server can then change their color by using Calypso's color commands! Credit to [Threebow](https://github.com/Threebow) for the idea.
+
+![Alt Text](https://i.imgur.com/SLJCN6y.gif)
+
+## To-Do
+
+Calypso is in a continuous state of development. New features/updates may come at any time. Some pending ideas are:
+
+  * Music
+  * Automod
+  * Stream alerts
+  * Custom tag/reaction system
+
+## License
+
+Released under the [GNU GPL v3](https://www.gnu.org/licenses/gpl-3.0.en.html) license.
+
+## Credits
+
+* **Sebastian Battle** - *Initial work* - [github](https://github.com/sabattle)
+* **Kyle Glaws** - [github](https://github.com/krglaws)
+* **CommradeFido#5286** - *All art and graphics*
+* **Red Discord Bot** - *Initial trivia* - [github](https://github.com/Cog-Creators/Red-DiscordBot/blob/V3/develop/README.md#join-the-community)
+* **Threebow** - *Ideas and tutorials* - [github](https://github.com/Threebow)

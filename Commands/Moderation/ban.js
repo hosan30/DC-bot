@@ -4,7 +4,6 @@ const Keyv = require('keyv');
 const bns = new Keyv(process.env.bns);
 const bannedUsers = new Keyv(process.env.bannedUsers);
 const punishments = new Keyv(process.env.punishments);
-const { pinEmojiId } = require('../../config.json');
 const { getRoleColor } = require('../../Utils/getRoleColor');
 const { sendLog } = require('../../Utils/sendLog');
 
@@ -53,7 +52,7 @@ module.exports = {
 
       const banEmbed = new MessageEmbed()
         .setColor(color)
-        .setTitle(`${interaction.client.emojis.cache.get(pinEmojiId).toString()} Ban Information`)
+        .setTitle(`Ban Information`)
         .addFields(
           { name: `Defendant's name:`, value: `${member.user.tag}` },
           { name: `Issued by:`, value: `${author}` },
@@ -91,7 +90,7 @@ module.exports = {
 
       const banEmbed = new MessageEmbed()
         .setColor(color)
-        .setTitle(`${interaction.client.emojis.cache.get(pinEmojiId).toString()} Ban Information`)
+        .setTitle(`Ban Information`)
         .addFields(
           { name: `Defendant's name:`, value: `${member}` },
           { name: `Issued by:`, value: `${author}` },

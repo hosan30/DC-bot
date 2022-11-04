@@ -10,16 +10,12 @@ module.exports = {
     .setDescription(`Accept or decline a suggestion from your suggestion channel.`)
     .addStringOption((option) => option
       .setName('acceptdecline')
-      .setDescription(`Choose what to do with this suggestion.`)
-      .addChoices(
-        { name: 'Accept', value: 'accept' },
-        { name: 'Decline', value: 'decline' }
-      )
+      .setDescription(`Must match accept or decline.`)
       .setRequired(true)
     )
     .addStringOption((option) => option
       .setName('messageid')
-      .setDescription(`The id of the message that contains the suggestion.`)
+      .setDescription(`'The id of the message that contains the suggestion.`)
       .setRequired(true)
     ),
   requiredPerms: ['MANAGE_GUILD'],

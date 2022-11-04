@@ -2,7 +2,6 @@ const { MessageEmbed } = require('discord.js');
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const Keyv = require('keyv');
 const warnings = new Keyv(process.env.wrns);
-const { pinEmojiId } = require('../../config.json');
 const { getRoleColor } = require('../../Utils/getRoleColor');
 const { sendLog } = require('../../Utils/sendLog');
 
@@ -39,7 +38,7 @@ module.exports = {
     let color = getRoleColor(interaction.guild);
     const warnEmbed = new MessageEmbed()
       .setColor(color)
-      .setTitle(`${interaction.client.emojis.cache.get(pinEmojiId).toString()} Warn Information`)
+      .setTitle(`Warn Information`)
       .addFields(
         { name: `Defendant's name:`, value: `${member.user.tag}` },
         { name: `Issued by:`, value: `${author}` },

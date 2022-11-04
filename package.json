@@ -4,10 +4,7 @@
   "description": "Focus' Professional Discord moderation bot.",
   "main": "index.js",
   "scripts": {
-    "logs": "heroku logs --app focus-dis -t",
-    "preheroku": "git add .",
-    "heroku": "git commit -am .",
-    "postheroku": "git push heroku master"
+    "logs": "heroku logs --app focus-dis -t"
   },
   "author": "Focus#7804",
   "license": "ISC",
@@ -15,14 +12,13 @@
     "node": "16.x"
   },
   "dependencies": {
-    "@discordjs/builders": "^1.1.0",
-    "@keyv/mongo": "^1.1.0",
-    "dblapi.js": "^2.4.1",
-    "discord.js": "^13.9.0",
+    "@discordjs/builders": "^0.7.0",
+    "@keyv/mongo": "^1.2.3",
+    "discord.js": "^13.2.0",
     "fs": "0.0.1-security",
-    "keyv": "^4.0.1",
+    "keyv": "^4.1.0",
     "moment": "^2.27.0",
     "mongodb": "^3.6.2",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.7"
   }
 }

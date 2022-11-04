@@ -18,21 +18,14 @@ module.exports = {
       avatarEmbed = new MessageEmbed()
         .setColor(color)
         .setTitle('Your avatar')
-        .setImage(interaction.member.user.displayAvatarURL({
-          format: 'png',
-          dynamic: true,
-          size: 2048
-        }))
+        .setImage(interaction.member.user.displayAvatarURL({ dynamic: true }))
         .setTimestamp();
     } else {
       avatarEmbed = new MessageEmbed()
         .setColor(color)
         .setTimestamp()
         .setTitle(`${user.username}'s avatar`)
-        .setImage(user.displayAvatarURL({
-          dynamic: true,
-          size: 2048
-        }));
+        .setImage(user.displayAvatarURL({ dynamic: true }));
     }
     interaction.reply({ embeds: [avatarEmbed] });
   }

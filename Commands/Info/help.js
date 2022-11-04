@@ -1,7 +1,7 @@
 const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const fs = require('fs');
-const { helpEmojis, urls } = require('../../config.json');
+const { urls } = require('../../config.json');
 const { getRoleColor } = require('../../Utils/getRoleColor');
 
 module.exports = {
@@ -9,7 +9,6 @@ module.exports = {
     .setName('help')
     .setDescription(`Displays a list of all available commands along with their usage.`),
   async execute(interaction) {
-    const { staffEmojiId, infoEmojiId, loggingEmojiId, welcomeEmojiId, funEmojiId, debugEmojiId } = helpEmojis;
     const { botInviteLink, discordInviteLink, topgg, website, github } = urls;
     let color = getRoleColor(interaction.guild);
     let debugCmds = '';
@@ -42,27 +41,27 @@ module.exports = {
       .setTitle('Commands')
       .addFields(
         {
-          name: `${interaction.client.emojis.cache.get(staffEmojiId).toString()} Staff Commands`,
+          name: `Staff Commands`,
           value: `${'```' + staffCmds + '```'}`, inline: true
         },
         {
-          name: `${interaction.client.emojis.cache.get(infoEmojiId).toString()} Info Commands`,
+          name: `Info Commands`,
           value: `${'```' + infoCmds + '```'}`, inline: true
         },
         {
-          name: `${interaction.client.emojis.cache.get(loggingEmojiId).toString()} Role Commands`,
+          name: `Role Commands`,
           value: `${'```' + roleCmds + '```'}`, inline: true
         },
         {
-          name: `${interaction.client.emojis.cache.get(welcomeEmojiId).toString()} Welcome Comamnds`,
+          name: `Welcome Comamnds`,
           value: `${'```' + welcomeCmds + '```'}`, inline: true
         },
         {
-          name: `${interaction.client.emojis.cache.get(funEmojiId).toString()} Fun Commands`,
+          name: `Fun Commands`,
           value: `${'```' + funCmds + '```'}`, inline: true
         },
         {
-          name: `${interaction.client.emojis.cache.get(debugEmojiId).toString()} Debug Commands`,
+          name: `Debug Commands`,
           value: `${'```' + debugCmds + '```'}`, inline: true
         }
       )

@@ -7,9 +7,8 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName('serverinfo')
     .setDescription(`Displays information about the server you're in.`),
-  async execute(interaction) {
+  execute(interaction) {
     let color = getRoleColor(interaction.guild);
-    let owner = await interaction.guild.members.fetch(interaction.guild.ownerId);
     const serverInfoEmbed = new MessageEmbed()
       .setColor(color)
       .setTitle('Server Information')
@@ -17,7 +16,7 @@ module.exports = {
         { name: 'Server Name', value: `${interaction.guild.name}` },
         { name: 'Server ID', value: `${interaction.guild.id}` },
         { name: 'Total Members', value: `${interaction.guild.memberCount}` },
-        { name: 'Owner', value: `${owner.user.tag}` },
+        { name: 'Owner', value: `${interaction.guild.owner}` },
         { name: 'Created At', value: `${moment(interaction.guild.createdTimestamp).format('LT')} ${moment(interaction.guild.createdTimestamp).format('LL')} (${moment(interaction.guild.createdTimestamp).fromNow()})` },
         { name: 'Role Count', value: `${interaction.guild.roles.cache.size}` },
         { name: 'Channel Count', value: `${interaction.guild.channels.cache.size}` },

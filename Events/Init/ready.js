@@ -1,7 +1,6 @@
 const { Collection } = require('discord.js');
 const Keyv = require('keyv');
 const commands = require('../../index');
-const helpCommand = require('../../Commands/Info/help');
 const bannedUsers = new Keyv(process.env.bannedUsers);
 const reminders = new Keyv(process.env.reminders);
 const logChannels = new Keyv(process.env.logChannels);
@@ -15,7 +14,6 @@ module.exports = (client) => {
   client.guilds.cache.forEach((guild) => {
     client.application.commands.set(commands, guild.id).catch((err) => console.log(err));
   });
-  client.application.commands.set([helpCommand.data.toJSON()]).catch((err) => console.log(err));
   client.guildConfigs = new Collection();
   setInterval(async () => {
     const guilds = await punishments.get('guilds');
@@ -30,17 +28,17 @@ module.exports = (client) => {
       const logChName = await logChannels.get(`logchannel_${guild.id}`);
       const log = guild.channels.cache.find((ch) => ch.name === `${logChName}`);
       if (bannedUsersArr && bannedUsersArr.length > 0) {
-        bannedUsersArr.forEach(async (user) => {
+        bannedUsersArr.forEach((user) => {
           if (user.unbanDate && user.unbanDate <= Date.now()) {
             const banInfo = guild.bans.fetch(user.userID);
             if (banInfo) {
+              bannedUsersArr.splice(bannedUsersArr.indexOf(user), 1);
               guild.members.unban(user.userID);
               if (log) log.send(`${user.username} has been unbanned.`);
             }
-            bannedUsersArr.splice(bannedUsersArr.indexOf(user), 1);
-            await bannedUsers.set(guild.id, bannedUsersArr);
           }
         });
+        bannedUsers.set(guild.id, bannedUsersArr);
       }
 
       let remindersArr = await reminders.get(guild.id);
@@ -48,15 +46,15 @@ module.exports = (client) => {
         remindersArr.forEach(async (reminder) => {
           if (reminder.date <= Date.now()) {
             const member = await guild.members.fetch(reminder.userID).catch((err) => console.log(err));
+            remindersArr.splice(remindersArr.indexOf(reminder), 1);
             if (member)
               member.user.send(`⏰ Time to ${reminder.text}`).catch(async () => {
                 const channel = await client.channels.fetch(reminder.channel);
                 channel.send(`⏰ ${member}, time to ${reminder.text}`);
               });
-            remindersArr.splice(remindersArr.indexOf(reminder), 1);
-            await reminders.set(guild.id, remindersArr);
           }
         });
+        reminders.set(guild.id, remindersArr);
       }
 
       let mutedMembersArr = await mutedMembers.get(guild.id);
@@ -71,9 +69,9 @@ module.exports = (client) => {
               member.send(`You have been unmuted from ${guild.name}.`);
             }
             mutedMembersArr.splice(mutedMembersArr.indexOf(arrElement), 1);
-            await mutedMembers.set(guild.id, mutedMembersArr);
           }
         });
+        await mutedMembers.set(guild.id, mutedMembersArr);
       }
     });
   }, 60000);

@@ -11,9 +11,9 @@ readdirSync('./Commands').forEach(folder => {
   readdirSync(`./Commands/${folder}`).forEach(file => {
     const command = require(`./Commands/${folder}/${file}`);
     client.commands.set(command.data.name, command);
-    if (command.data.name !== 'help') commands.push(command.data.toJSON());
+    commands.push(command.data.toJSON());
   });
-}); 
+});
 module.exports = commands;
 
 readdirSync('./Events').forEach(folder => {

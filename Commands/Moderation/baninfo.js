@@ -2,7 +2,6 @@ const { MessageEmbed } = require('discord.js');
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const Keyv = require('keyv');
 const bannedUsers = new Keyv(process.env.bannedUsers);
-const { pinEmojiId } = require('../../config.json');
 const { getRoleColor } = require('../../Utils/getRoleColor');
 
 module.exports = {
@@ -27,7 +26,7 @@ module.exports = {
     let color = getRoleColor(interaction.guild);
     const banInfoEmbed = new MessageEmbed()
       .setColor(color)
-      .setTitle(`${interaction.client.emojis.cache.get(pinEmojiId).toString()} Ban Information`)
+      .setTitle(`Ban Information`)
       .addFields(
         { name: `Defendant's name:`, value: username },
         { name: `Issued by:`, value: bannedUser.author }
